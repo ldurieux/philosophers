@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ldurieux <ldurieux@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/29 22:52:25 by ldurieux          #+#    #+#             */
+/*   Updated: 2022/11/29 22:52:27 by ldurieux         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PHILO_H
 # define PHILO_H
 
@@ -8,7 +20,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_data t_data;
+typedef struct s_data	t_data;
 
 typedef struct s_philo
 {

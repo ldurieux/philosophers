@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo_while_alive.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ldurieux <ldurieux@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/29 22:52:34 by ldurieux          #+#    #+#             */
+/*   Updated: 2022/11/29 22:52:35 by ldurieux         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 static void	lock_philos(t_philo *philos, size_t	count)
@@ -35,7 +47,7 @@ void	philo_while_alive(t_data *data)
 
 	while (1)
 	{
-		idx = (size_t)-1;
+		idx = (size_t) - 1;
 		goal_not_reached = data->eat_goal == 0;
 		ft_usleep(500);
 		lock_philos(data->philos, data->philo_count);

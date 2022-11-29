@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo_data_init.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ldurieux <ldurieux@student.42lyon.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/29 22:52:41 by ldurieux          #+#    #+#             */
+/*   Updated: 2022/11/29 22:52:43 by ldurieux         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philo.h"
 
 #define INT32_MAX_STR "2147483647"
@@ -8,31 +20,29 @@ static int	parse_args(t_data *data, char **argv)
 
 	data->philo_count = ft_strtoui(argv[0], &tmp);
 	if (data->philo_count == 0 || (data->philo_count == INT_MAX
-		&& ft_strcmp(argv[0], INT32_MAX_STR)))
+			&& ft_strcmp(argv[0], INT32_MAX_STR)))
 		return (0);
 	data->time_to_die = ft_strtoui(argv[1], &tmp);
 	if (data->time_to_die == 0 || (data->time_to_die == INT_MAX
-		&& ft_strcmp(argv[1], INT32_MAX_STR)))
+			&& ft_strcmp(argv[1], INT32_MAX_STR)))
 		return (0);
 	data->time_to_eat = ft_strtoui(argv[2], &tmp);
 	if (data->time_to_eat == 0 || (data->time_to_eat == INT_MAX
-		&& ft_strcmp(argv[2], INT32_MAX_STR)))
+			&& ft_strcmp(argv[2], INT32_MAX_STR)))
 		return (0);
 	data->time_to_sleep = ft_strtoui(argv[3], &tmp);
 	if (data->time_to_sleep == 0 || (data->time_to_sleep == INT_MAX
-		&& ft_strcmp(argv[3], INT32_MAX_STR)))
+			&& ft_strcmp(argv[3], INT32_MAX_STR)))
 		return (0);
 	data->eat_goal = 0;
 	if (!argv[4])
 		return (1);
 	data->eat_goal = ft_strtoui(argv[4], NULL);
-	if (data->eat_goal < 1 || (data->eat_goal == INT_MAX
-		&& ft_strcmp(argv[4], INT32_MAX_STR)))
-		return (0);
-	return (1);
+	return (!(data->eat_goal < 1 || (data->eat_goal == INT_MAX
+				&& ft_strcmp(argv[4], INT32_MAX_STR))));
 }
 
-int		philo_data_init(t_data *data, char **argv)
+int	philo_data_init(t_data *data, char **argv)
 {
 	size_t	idx;
 
