@@ -22,7 +22,6 @@ ASMSRCS		= \
 LIB_NAMES	= \
 
 LIB_DYN		= \
-			  -lpthread
 
 HEADERS		= \
 			  includes \
@@ -39,7 +38,7 @@ OBJS		= $(SRCS:%.c=$(BUILDDIR)/%.o) $(ASMSRCS:%.s=$(BUILDDIR)/%.o)
 DEPS		= $(SRCS:%.c=$(BUILDDIR)/%.d)
 CC			= cc
 CCWFLGS		= -Wall -Wextra -Werror
-CCDBGFLGS	= -g3
+CCDBGFLGS	= -fsanitize=thread -g3
 CCO1FLGS	= -O1 -march=native
 CCO2FLGS	= -O2 -march=native
 CCO3FLGS	= -O3 -march=native

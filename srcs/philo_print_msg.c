@@ -21,6 +21,6 @@ void	philo_print_msg(t_philo *philo, char *msg)
 	data = philo->data;
 	pthread_mutex_lock(&data->print_mutex);
 	if (!data->stop_print)
-		printf("%zu %zu %s\n", time, philo->id, msg);
+		printf("%zu %zu %s\n", time, philo->id + 1, msg);
 	pthread_mutex_unlock(&data->print_mutex);
 }
