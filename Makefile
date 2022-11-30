@@ -22,6 +22,7 @@ ASMSRCS		= \
 LIB_NAMES	= \
 
 LIB_DYN		= \
+			  -lpthread
 
 HEADERS		= \
 			  includes \
@@ -82,6 +83,6 @@ $(BUILDDIR)/%.o : %.s Makefile
 
 $(BUILDDIR)/%.o : %.c Makefile $(LIB_PATHS)
 		@mkdir -p $(@D)
-		$(CC) $(CCWFLGS) $(DEPSFLAGS) $(CCDBGFLGS) $(CCDEFSFLGS) -I$(HEADERS) $(LIB_HEADERS) -c $< -o $@
+		$(CC) $(CCWFLGS) $(DEPSFLAGS) $(CCDEFSFLGS) -I$(HEADERS) $(LIB_HEADERS) -c $< -o $@
 
 .PHONY: all clean fclean re bonus libs
