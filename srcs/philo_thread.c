@@ -30,9 +30,12 @@ static int	get_forks(t_philo *philo, pthread_mutex_t *forks[2])
 	forks[1] = philo->data->forks;
 	if (philo->id != philo->data->philo_count - 1)
 		forks[1] = philo->data->forks + philo->id + 1;
-	swap = forks[0];
-	forks[0] = forks[philo->id % 2];
-	forks[philo->id % 2] = swap;
+	if (philo->id % 2)
+	{
+		swap = forks[0];
+		forks[0] = forks[1];
+		forks[1] = swap;
+	}
 	pthread_mutex_lock(forks[0]);
 	if (is_dead(philo))
 		return (pthread_mutex_unlock(forks[0]), 0);
@@ -75,6 +78,8 @@ static int	philo_eat(t_philo *philo)
 
 void	*philo_thread(t_philo *philo)
 {
+	if (philo->id % 2)
+		ft_usleep(1000);
 	if (philo->data->philo_count == 1)
 	{
 		philo_print_msg(philo, "is thinking");

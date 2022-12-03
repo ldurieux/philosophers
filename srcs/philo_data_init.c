@@ -59,6 +59,9 @@ int	philo_data_init(t_data *data, char **argv)
 	data->stop_print = 0;
 	idx = (size_t)-1;
 	while (++idx < data->philo_count)
+	{
+		pthread_mutex_init(data->forks + idx, NULL);
 		philo_init(data->philos + idx, data, idx);
+	}
 	return (1);
 }
